@@ -1,25 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
 
-function App() {
+const MovieCatalog = () => {
+  const [movies, setMovies] = useState([
+    { id: 1, title: "Movie 1", genre: "Action" },
+    { id: 2, title: "Movie 2", genre: "Drama" },
+    { id: 3, title: "Movie 3", genre: "Comedy" },
+  ]);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <h1>Movie Catalog</h1>
+      <ul>
+        {movies.map((movie) => (
+          <li key={movie.id}>
+            <strong>Title:</strong> {movie.title}, <strong>Genre:</strong>{" "}
+            {movie.genre}
+          </li>
+        ))}
+      </ul>
     </div>
   );
-}
+};
 
-export default App;
+export default MovieCatalog;
