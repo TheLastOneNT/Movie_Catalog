@@ -4,7 +4,7 @@ import Footer from "./Components/Footer.js";
 import "./index.css";
 import backgroundVideo from "./Resources/bg_video.mp4";
 
-const { Header, Content, Background } = Layout;
+const { Header, Content } = Layout;
 
 const MovieCatalog = () => {
   return (
