@@ -1,25 +1,28 @@
-import React, { useState } from "react";
+import { Layout } from "antd";
+
+import Footer from "./Components/Footer.js";
+import "./index.css";
+import backgroundVideo from "./Resources/bg_video.mp4";
+
+const { Header, Content, Background } = Layout;
 
 const MovieCatalog = () => {
-  const [movies, setMovies] = useState([
-    { id: 1, title: "Movie 1", genre: "Action" },
-    { id: 2, title: "Movie 2", genre: "Drama" },
-    { id: 3, title: "Movie 3", genre: "Comedy" },
-  ]);
-
   return (
-    <div>
-      <h1>Movie Catalog</h1>
-      <ul>
-        {movies.map((movie) => (
-          <li key={movie.id}>
-            <strong>Title:</strong> {movie.title}, <strong>Genre:</strong>{" "}
-            {movie.genre}
-          </li>
-        ))}
-      </ul>
-    </div>
+    <Layout>
+      <div className="coverImg" />
+      <video
+        className="bgVideo"
+        src={backgroundVideo}
+        autoPlay
+        loop
+        muted
+        playsInline
+      />
+
+      <Header className="header"></Header>
+      <Content className="content"></Content>
+      <Footer />
+    </Layout>
   );
 };
-
 export default MovieCatalog;
