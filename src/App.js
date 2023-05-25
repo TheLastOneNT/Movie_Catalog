@@ -1,6 +1,9 @@
 import { Layout } from "antd";
 
 import Footer from "./Components/Footer.js";
+import CarouselComponent from "./Components/Carousel.js";
+import Gallery from "./Components/Gallery.js";
+
 import "./index.css";
 import backgroundVideo from "./Resources/bg_video.mp4";
 
@@ -20,7 +23,9 @@ const MovieCatalog = () => {
       />
 
       <Header className="header"></Header>
-      <Content className="content"></Content>
+      <Content className="content">
+        <Gallery />
+      </Content>
       <Footer />
     </Layout>
   );
