@@ -1,7 +1,6 @@
 import { Layout } from "antd";
 
 import Footer from "./Components/Footer.js";
-import CarouselComponent from "./Components/Carousel.js";
 import Gallery from "./Components/Gallery.js";
 
 import "./index.css";
