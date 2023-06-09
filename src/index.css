@@ -86,6 +86,29 @@ body {
   overflow: auto;
 }
 
+.carouselCard {
+  background-color: rgba(15, 25, 35, 0);
+  box-shadow: none !important;
+}
+
+.prevGalleryBtn,
+.nextGalleryBtn {
+  position: absolute;
+  top: 44%;
+  transform: translate(-50%);
+  font-size: 40px;
+  color: white;
+  z-index: 1;
+}
+
+.prevGalleryBtn {
+  left: 0;
+}
+
+.nextGalleryBtn {
+  right: 0;
+}
+
 .card {
   width: 14% !important;
   color: #fff;
