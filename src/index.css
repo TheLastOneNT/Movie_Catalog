@@ -13,7 +13,7 @@ body {
 
 /* HEADER */
 .header {
-  height: 7vh;
+  height: 8vh;
   font-family: "Poppins", sans-serif;
 
   text-align: center;
@@ -28,17 +28,22 @@ body {
 
 /* CONTENT */
 .content {
-  height: 86vh;
+  height: 87vh;
   font-family: "Poppins", sans-serif;
-
   text-align: center;
-  color: #fff;
   z-index: 2;
+}
+
+.contentContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
 }
 
 /* FOOTER */
 .footer {
-  height: 7vh;
+  height: 5vh;
   z-index: 2;
 }
 
@@ -74,28 +79,21 @@ body {
 /* GALLERY */
 .gallery {
   background-color: rgba(15, 25, 35, 0);
+  width: 95vw;
+  height: 85vh;
+  max-width: 100vw;
+  max-height: 85vh;
+  overflow: auto;
 }
 
-.galleryItem {
-  width: 200px;
-  height: 300px;
-  border-radius: 15px;
+.card {
+  width: 14% !important;
   color: #fff;
-  font-family: "Poppins", sans-serif;
-  /*   background: linear-gradient(
-    180deg,
-    rgba(0, 0, 0, 0.8) 0%,
-    rgba(15, 25, 35, 0.8) 100%
-  ); */
+  box-shadow: none !important;
 }
 
-.galleryImg {
-  width: 180px;
-  height: 240px;
-  border-radius: 0;
-  object-fit: cover;
-}
-
-.gallery label {
-  background-color: rgba(15, 25, 35, 0) !important;
+.poster {
+  width: 100%;
+  height: 90%;
+  border-radius: 10px;
 }

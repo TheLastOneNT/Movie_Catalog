@@ -23,7 +23,9 @@ const MovieCatalog = () => {
 
       <Header className="header"></Header>
       <Content className="content">
-        <Gallery />
+        <div className="contentContainer">
+          <Gallery />
+        </div>
       </Content>
       <Footer />
     </Layout>
