@@ -41,7 +41,6 @@ const Gallery = () => {
             </Card>
           ))}
         </Carousel>
-
         <LeftCircleOutlined className="prevGalleryBtn" onClick={prev} />
         <RightCircleOutlined className="nextGalleryBtn" onClick={next} />
       </Col>
