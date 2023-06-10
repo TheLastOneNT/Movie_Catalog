@@ -9,6 +9,7 @@ body {
   margin: 0;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
 }
 
 /* HEADER */
@@ -30,9 +31,9 @@ body {
 .content {
   display: flex;
   justify-content: center;
-  max-height: 94vh;
   z-index: 3;
-  overflow: hidden;
+  max-height: 94vh;
+  overflow-y: auto;
 }
 
 /* BACKGROUND */
@@ -156,20 +157,46 @@ body {
 }
 
 /* Mobile version */
-@media only screen and (max-width: 600px) {
-  .poster {
-    width: 100px;
-  }
+/* Extra large devices (large desktops, 2560px and up) */
+@media only screen and (min-width: 2560px) {
 }
 
-@media only screen and (min-width: 600px) {
-  .poster {
-    width: 200px;
-  }
+/* Large devices (laptops/desktops, 1920px and up) */
+@media only screen and (min-width: 1920px) {
 }
 
-@media (max-width: 768px) {
+/* Medium devices (tablets, 768px and up) */
+@media only screen and (min-width: 768px) and (max-width: 1919px) {
+}
+
+/* Small devices (phones, 375px and up) */
+@media only screen and (min-width: 375px) and (max-width: 767px) {
+  .menu {
+    font-size: 16px;
+  }
+
+  .table {
+    width: 85vw;
+  }
+
+  .table .ant-table-thead > tr > th {
+    font-size: 14px;
+  }
+
+  .NT {
+    font-size: 18px;
+  }
+
   .poster {
-    width: 75%;
+    height: 200px;
+  }
+
+  .movieName {
+    font-size: 12px;
+  }
+
+  .prevGalleryBtn,
+  .nextGalleryBtn {
+    font-size: 30px;
   }
 }
