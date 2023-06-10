@@ -133,6 +133,7 @@ const MovieList = () => {
         onChange={(e) => setSearchText(e.target.value)}
       /> */}
       <Table
+        className="table"
         columns={columns}
         dataSource={movieList.filter(searchByName)}
         onChange={handleChange}
