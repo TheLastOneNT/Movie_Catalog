@@ -182,25 +182,32 @@ const MovieList = () => {
       onFilter: (value, record) =>
         record.actors && record.actors.includes(value),
       render: (actors) => {
-        let color;
-        if (!actors) return null;
-        if (actors === "Al Pacino") color = "blue";
-        if (actors === "Denzel Washington") color = "green";
-        if (actors === "Leonardo DiCaprio") color = "green";
-        if (actors === "Brad Pitt") color = "green";
-        if (actors === "Jim Carrey") color = "green";
-        if (actors === "Tom Cruise") color = "green";
-        if (actors === "Robert De Niro") color = "green";
-        if (actors === "Robert Downey Jr") color = "green";
-        if (actors === "Will Smith") color = "green";
-        if (actors === "Matthew McConaughey") color = "green";
-        if (actors === "Matt Damon") color = "green";
-        if (actors === "Mark Wahlberg") color = "green";
-        if (actors === "Mel Gibson") color = "green";
+        if (!actors || actors.length === 0) return null;
         return (
-          <Tag color={color} key={actors}>
-            {actors && actors.toUpperCase()}
-          </Tag>
+          <>
+            {actors.map((actor) => {
+              let color;
+              if (!actors) return null;
+              if (actor === "Al Pacino") color = "blue";
+              else if (actor === "Denzel Washington") color = "purple";
+              else if (actor === "Leonardo DiCaprio") color = "red";
+              else if (actor === "Brad Pitt") color = "volcano";
+              else if (actor === "Jim Carrey") color = "green";
+              else if (actor === "Tom Cruise") color = "orange";
+              else if (actor === "Robert De Niro") color = "geekblue";
+              else if (actor === "Robert Downey Jr") color = "cyan";
+              else if (actor === "Will Smith") color = "gold";
+              else if (actor === "Matthew McConaughey") color = "lime";
+              else if (actor === "Matt Damon") color = "#f50";
+              else if (actor === "Mark Wahlberg") color = "#2db7f5";
+              else if (actor === "Mel Gibson") color = "#87d068";
+              return (
+                <Tag color={color} key={actor}>
+                  {actor && actor.toUpperCase()}
+                </Tag>
+              );
+            })}
+          </>
         );
       },
     },
