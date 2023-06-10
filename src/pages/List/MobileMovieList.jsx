@@ -1,4 +1,4 @@
-import { Card, Button, Input, Rate, Tag, Row, Col } from "antd";
+import { Card, Button, Input, Rate, Tag, Row, Col, Badge } from "antd";
 import movieList from "../../Components/MovieList.js";
 import { useState } from "react";
 
@@ -31,36 +31,26 @@ const MobileMovieList = () => {
       "cyan",
       "gold",
     ];
-    const actorColors = [
-      "blue",
-      "purple",
-      "red",
-      "volcano",
-      "green",
-      "orange",
-      "geekblue",
-      "cyan",
-      "gold",
-      "lime",
-      "#f50",
-      "#2db7f5",
-      "#87d068",
-    ];
+
     return (
-      <Card title={movie.name} style={{ margin: "16px 0" }} key={movie.key}>
-        <p>{movie.genre && renderTags(movie.genre, genreColors)}</p>
-        <p>{movie.type}</p>
-        <p>{movie.year}</p>
-        <Rate
-          allowHalf
-          disabled
-          count={5}
-          value={parseFloat(movie.rating)}
-          style={{ fontSize: "14px" }}
-        />
-        <p>{movie.duration}</p>
-        <p>{movie.actors && renderTags(movie.actors, actorColors)}</p>
-      </Card>
+      <Badge.Ribbon text={movie.type} style={{ marginTop: "50px" }}>
+        <Card
+          title={movie.name}
+          style={{ margin: "16px auto" }}
+          key={movie.key}
+          size="small"
+        >
+          <Rate
+            allowHalf
+            disabled
+            value={parseFloat(movie.rating)}
+            style={{ fontSize: "14px" }}
+          />
+          <p>{movie.year}</p>
+          <p>{movie.duration}</p>
+          <p>{movie.genre && renderTags(movie.genre, genreColors)}</p>
+        </Card>
+      </Badge.Ribbon>
     );
   };
 
