@@ -1,6 +1,6 @@
 import { Tag, Table } from "antd";
 import movieList from "../../Components/MovieList.js";
-import chroma from "chroma-js";
+/* import chroma from "chroma-js"; */
 import { useEffect, useState } from "react";
 
 /* const currentYear = new Date().getFullYear();
