@@ -1,5 +1,4 @@
-import { Card, Button, Select, Input, Rate, Tag, Row, Col } from "antd";
-import { SearchOutlined } from "@ant-design/icons";
+import { Card, Button, Input, Rate, Tag, Row, Col } from "antd";
 import movieList from "../../Components/MovieList.js";
 import { useState } from "react";
 
