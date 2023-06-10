@@ -1,4 +1,5 @@
-import { Tag, Table } from "antd";
+import { Input, Space, Button, Table, Tag } from "antd";
+import { SearchOutlined } from "@ant-design/icons";
 import movieList from "../../Components/MovieList.js";
 import { useEffect, useState } from "react";
 
@@ -21,6 +22,59 @@ const MovieList = () => {
     return record.name.toLowerCase().includes(searchText.toLowerCase());
   };
 
+  const getColumnSearchProps = (dataIndex, setSearchText) => ({
+    filterDropdown: ({
+      setSelectedKeys,
+      selectedKeys,
+      confirm,
+      clearFilters,
+    }) => (
+      <div style={{ padding: 8 }}>
+        <Input
+          placeholder={`Search ${dataIndex}`}
+          value={selectedKeys[0]}
+          onChange={(e) =>
+            setSelectedKeys(e.target.value ? [e.target.value] : [])
+          }
+          onPressEnter={() => confirm()}
+          style={{ width: 188, marginBottom: 8, display: "block" }}
+        />
+        <Space>
+          <Button
+            type="primary"
+            onClick={() => {
+              confirm();
+              setSearchText(selectedKeys[0] || "");
+            }}
+            icon={<SearchOutlined />}
+            size="small"
+            style={{ width: 90 }}
+          >
+            Search
+          </Button>
+          <Button onClick={clearFilters} size="small" style={{ width: 90 }}>
+            Reset
+          </Button>
+        </Space>
+      </div>
+    ),
+    filterIcon: (filtered) => (
+      <SearchOutlined style={{ color: filtered ? "#1890ff" : undefined }} />
+    ),
+    onFilter: (value, record) =>
+      record[dataIndex]
+        ? record[dataIndex]
+            .toString()
+            .toLowerCase()
+            .includes(value.toLowerCase())
+        : "",
+    onFilterDropdownVisibleChange: (visible) => {
+      if (visible) {
+      }
+    },
+    render: (text) => text,
+  });
+
   const columns = [
     {
       title: "ID",
@@ -33,7 +87,7 @@ const MovieList = () => {
       title: "Name",
       dataIndex: "name",
       key: "name",
-      onFilter: (value, record) => searchByName(record),
+      ...getColumnSearchProps("name", setSearchText),
     },
     {
       title: "Genre",
