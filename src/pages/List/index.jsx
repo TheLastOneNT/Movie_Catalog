@@ -3,11 +3,11 @@ import movieList from "../../Components/MovieList.js";
 import chroma from "chroma-js";
 import { useEffect, useState } from "react";
 
-const currentYear = new Date().getFullYear();
+/* const currentYear = new Date().getFullYear();
 const startYear = 1960;
-const endYear = currentYear;
+const endYear = currentYear; */
 
-const colorScale = chroma
+/* const colorScale = chroma
   .scale([
     "#808080",
     "#A0A0A0",
@@ -17,7 +17,7 @@ const colorScale = chroma
     "#32CD32",
     "#00FF00",
   ])
-  .domain([startYear, endYear]);
+  .domain([startYear, endYear]); */
 
 const MovieList = () => {
   const [filteredInfo, setFilteredInfo] = useState({});
@@ -102,11 +102,11 @@ const MovieList = () => {
       key: "year",
       sorter: (a, b) => a.year - b.year,
       sortOrder: sortedInfo.columnKey === "year" && sortedInfo.order,
-      render: (year) => (
+      /*       render: (year) => (
         <Tag color={colorScale(year).hex()} key={year}>
           {year}
         </Tag>
-      ),
+      ), */
     },
     {
       title: "Rating Niko",
