@@ -8,11 +8,6 @@ const MovieList = () => {
   const [sortedInfo, setSortedInfo] = useState({});
   const [searchText, setSearchText] = useState("");
 
-  useEffect(() => {
-    setFilteredInfo({});
-    setSortedInfo({});
-  }, [searchText]);
-
   const handleChange = (pagination, filters, sorter) => {
     setFilteredInfo(filters);
     setSortedInfo(sorter);
@@ -59,15 +54,12 @@ const MovieList = () => {
     render: (text) => text,
   });
 
+  useEffect(() => {
+    setFilteredInfo({});
+    setSortedInfo({});
+  }, [searchText]);
+
   const columns = [
-    {
-      title: "ID",
-      dataIndex: "id",
-      key: "id",
-      align: "center",
-      sorter: (a, b) => a.id - b.id,
-      sortOrder: sortedInfo.columnKey === "id" && sortedInfo.order,
-    },
     {
       title: "Name",
       dataIndex: "name",
@@ -91,21 +83,28 @@ const MovieList = () => {
       ],
       filteredValue: filteredInfo.genre || null,
       onFilter: (value, record) => record.genre && record.genre.includes(value),
-      render: (genre) => {
-        let color;
-        if (!genre) return null;
-        if (genre === "Historical") color = "purple";
-        if (genre === "Christian") color = "red";
-        if (genre === "Fantasy") color = "volcano";
-        if (genre === "Comedy") color = "green";
-        if (genre === "Documentary") color = "orange";
-        if (genre === "Action") color = "geekblue";
-        if (genre === "Cartoon") color = "cyan";
-        if (genre === "Drama") color = "gold";
+      render: (genres) => {
+        if (!genres || genres.length === 0) return null;
         return (
-          <Tag color={color} key={genre}>
-            {genre && genre.toUpperCase()}
-          </Tag>
+          <>
+            {genres.map((genre) => {
+              let color;
+              if (!genre) return null;
+              if (genre === "Historical") color = "purple";
+              if (genre === "Christian") color = "red";
+              if (genre === "Fantasy") color = "volcano";
+              if (genre === "Comedy") color = "green";
+              if (genre === "Documentary") color = "orange";
+              if (genre === "Action") color = "geekblue";
+              if (genre === "Cartoon") color = "cyan";
+              if (genre === "Drama") color = "gold";
+              return (
+                <Tag color={color} key={genre}>
+                  {genre && genre.toUpperCase()}
+                </Tag>
+              );
+            })}
+          </>
         );
       },
     },
@@ -209,12 +208,6 @@ const MovieList = () => {
 
   return (
     <div>
-      {/*       <input
-        type="text"
-        placeholder="Search by name"
-        value={searchText}
-        onChange={(e) => setSearchText(e.target.value)}
-      /> */}
       <Table
         className="table"
         columns={columns}

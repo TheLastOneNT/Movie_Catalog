@@ -18,7 +18,7 @@ const movieList = [
   {
     id: 1,
     name: "Неисправимый Рон",
-    genre: "Cartoon",
+    genre: ["Cartoon"],
     image: img1,
     type: "Cartoon",
     year: "2021",
@@ -26,7 +26,7 @@ const movieList = [
   {
     id: 2,
     name: "Как приручить дракона",
-    genre: "Cartoon",
+    genre: ["Cartoon"],
     image: img2,
     type: "Cartoon",
     year: "2010",
@@ -34,7 +34,7 @@ const movieList = [
   {
     id: 3,
     name: "Как приручить дракона 2",
-    genre: "Cartoon",
+    genre: ["Cartoon"],
     image: img3,
     type: "Cartoon",
     year: "2014",
@@ -42,7 +42,7 @@ const movieList = [
   {
     id: 4,
     name: "Как приручить дракона 3",
-    genre: "Cartoon",
+    genre: ["Cartoon"],
     image: img4,
     type: "Cartoon",
     year: "2019",
@@ -50,7 +50,7 @@ const movieList = [
   {
     id: 5,
     name: "В поисках Немо",
-    genre: "Cartoon",
+    genre: ["Cartoon"],
     image: img5,
     type: "Cartoon",
     year: "2003",
@@ -58,7 +58,7 @@ const movieList = [
   {
     id: 6,
     name: "В поисках Дори",
-    genre: "Cartoon",
+    genre: ["Cartoon"],
     image: img6,
     type: "Cartoon",
     year: "2016",
@@ -66,7 +66,7 @@ const movieList = [
   {
     id: 7,
     name: "Законопослушный гражданин",
-    genre: "Action",
+    genre: ["Action", "Drama"],
     image: img7,
     type: "Movie",
     year: "2009",
@@ -74,7 +74,7 @@ const movieList = [
   {
     id: 8,
     name: "Дом",
-    genre: "Documentary",
+    genre: ["Documentary"],
     image: img8,
     type: "Movie",
     year: "2009",
@@ -82,7 +82,7 @@ const movieList = [
   {
     id: 9,
     name: "Голодные игры",
-    genre: "Action",
+    genre: ["Action", "Fantasy"],
     image: img9,
     type: "Movie",
     year: "2012",
@@ -90,7 +90,7 @@ const movieList = [
   {
     id: 10,
     name: "Мандарины",
-    genre: "Drama",
+    genre: ["Drama", "Historical"],
     image: img10,
     type: "Movie",
     year: "2013",
@@ -98,7 +98,7 @@ const movieList = [
   {
     id: 11,
     name: "Отец солдата",
-    genre: "Drama",
+    genre: ["Drama", "Historical"],
     image: img11,
     type: "Movie",
     year: "1964",
@@ -106,7 +106,7 @@ const movieList = [
   {
     id: 12,
     name: "Фокус",
-    genre: "Drama",
+    genre: ["Drama"],
     image: img12,
     type: "Movie",
     year: "2015",
@@ -115,7 +115,7 @@ const movieList = [
   {
     id: 13,
     name: "Однажды в Америке",
-    genre: "Action",
+    genre: ["Action"],
     image: img13,
     type: "Movie",
     year: "1984",
@@ -124,7 +124,7 @@ const movieList = [
   {
     id: 14,
     name: "Брюс Всемогущий",
-    genre: "Comedy",
+    genre: ["Comedy"],
     image: img14,
     type: "Movie",
     year: "2003",
@@ -133,7 +133,7 @@ const movieList = [
   {
     id: 15,
     name: "Зима в огне",
-    genre: "Documentary",
+    genre: ["Documentary", "Historical"],
     image: img15,
     type: "Movie",
     year: "2015",
