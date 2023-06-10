@@ -1,4 +1,4 @@
-import { Input, Space, Button, Table, Tag, Row, Col } from "antd";
+import { Input, Space, Button, Table, Tag, Row, Col, Rate } from "antd";
 import { SearchOutlined } from "@ant-design/icons";
 import movieList from "../../Components/MovieList.js";
 import { useEffect, useState } from "react";
@@ -81,6 +81,8 @@ const MovieList = () => {
       key: "name",
       width: "25vw",
       ...getColumnSearchProps("name", setSearchText),
+      sorter: (a, b) => a.name.localeCompare(b.name),
+      sortOrder: sortedInfo.columnKey === "name" && sortedInfo.order,
     },
     {
       title: "Genre",
@@ -158,16 +160,11 @@ const MovieList = () => {
       sortOrder: sortedInfo.columnKey === "year" && sortedInfo.order,
     },
     {
-      title: "Rating Niko",
-      dataIndex: "ratingN",
-      key: "ratingN",
+      title: "Rating ",
+      dataIndex: "rating",
+      key: "rating",
       align: "center",
-    },
-    {
-      title: "Rating Teo",
-      dataIndex: "ratingT",
-      key: "ratingT",
-      align: "center",
+      render: (rating) => <Rate allowHalf defaultValue={parseFloat(rating)} />,
     },
     {
       title: "Duration",

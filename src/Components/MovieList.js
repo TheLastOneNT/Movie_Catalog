@@ -23,6 +23,7 @@ const movieList = [
     type: "Cartoon",
     year: "2021",
     duration: "1h 46min",
+    rating: "1.5",
   },
   {
     id: 2,
