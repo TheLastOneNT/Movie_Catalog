@@ -1,7 +1,7 @@
 import { Card, Carousel } from "antd";
 import { useRef } from "react";
 import { RightCircleOutlined, LeftCircleOutlined } from "@ant-design/icons";
-import { Col, Row, Tag, Typography } from "antd";
+import { Col, Row, Typography } from "antd";
 import movieList from "../../Components/MovieList.js";
 
 const { Text } = Typography;

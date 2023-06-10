@@ -1,4 +1,4 @@
-import { Tag, Table, Input } from "antd";
+import { Tag, Table } from "antd";
 import movieList from "../../Components/MovieList.js";
 import chroma from "chroma-js";
 import { useEffect, useState } from "react";
@@ -22,7 +22,7 @@ const colorScale = chroma
 const MovieList = () => {
   const [filteredInfo, setFilteredInfo] = useState({});
   const [sortedInfo, setSortedInfo] = useState({});
-  const [searchText, setSearchText] = useState("");
+  const [searchText] = useState("");
 
   useEffect(() => {
     setFilteredInfo({});
