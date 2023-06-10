@@ -64,6 +64,7 @@ const MovieList = () => {
       title: "ID",
       dataIndex: "id",
       key: "id",
+      align: "center",
       sorter: (a, b) => a.id - b.id,
       sortOrder: sortedInfo.columnKey === "id" && sortedInfo.order,
     },
@@ -77,19 +78,30 @@ const MovieList = () => {
       title: "Genre",
       dataIndex: "genre",
       key: "genre",
+      align: "center",
       filters: [
+        { text: "Historical", value: "Historical" },
+        { text: "Christian", value: "Christian" },
+        { text: "Fantasy", value: "Fantasy" },
+        { text: "Comedy", value: "Comedy" },
+        { text: "Documentary", value: "Documentary" },
+        { text: "Action", value: "Action" },
+        { text: "Cartoon", value: "Cartoon" },
         { text: "Drama", value: "Drama" },
-        { text: "Crime", value: "Crime" },
       ],
       filteredValue: filteredInfo.genre || null,
       onFilter: (value, record) => record.genre && record.genre.includes(value),
       render: (genre) => {
-        let color = "blue";
-        if (genre === "Historical") color = "volcano";
-        if (genre === "Christian") color = "green";
+        let color;
+        if (!genre) return null;
+        if (genre === "Historical") color = "purple";
+        if (genre === "Christian") color = "red";
         if (genre === "Fantasy") color = "volcano";
         if (genre === "Comedy") color = "green";
-        if (genre === "Documentary") color = "green";
+        if (genre === "Documentary") color = "orange";
+        if (genre === "Action") color = "geekblue";
+        if (genre === "Cartoon") color = "cyan";
+        if (genre === "Drama") color = "gold";
         return (
           <Tag color={color} key={genre}>
             {genre && genre.toUpperCase()}
@@ -101,6 +113,7 @@ const MovieList = () => {
       title: "Type",
       dataIndex: "type",
       key: "type",
+      align: "center",
       filters: [
         { text: "Movie", value: "Movie" },
         { text: "Cartoon", value: "Cartoon" },
@@ -124,6 +137,7 @@ const MovieList = () => {
       title: "Year",
       dataIndex: "year",
       key: "year",
+      align: "center",
       sorter: (a, b) => a.year - b.year,
       sortOrder: sortedInfo.columnKey === "year" && sortedInfo.order,
     },
@@ -131,21 +145,25 @@ const MovieList = () => {
       title: "Rating Niko",
       dataIndex: "ratingN",
       key: "ratingN",
+      align: "center",
     },
     {
       title: "Rating Teo",
       dataIndex: "ratingT",
       key: "ratingT",
+      align: "center",
     },
     {
       title: "Movie Duration",
       dataIndex: "duration",
       key: "duration",
+      align: "center",
     },
     {
       title: "Actors",
       dataIndex: "actors",
       key: "actors",
+      align: "center",
       filters: [
         { text: "Al Pacino", value: "Al Pacino" },
         { text: "Denzel Washington", value: "Denzel Washington" },
