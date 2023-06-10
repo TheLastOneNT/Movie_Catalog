@@ -22,6 +22,7 @@ const movieList = [
     image: img1,
     type: "Cartoon",
     year: "2021",
+    duration: "1h 46min",
   },
   {
     id: 2,
@@ -30,6 +31,7 @@ const movieList = [
     image: img2,
     type: "Cartoon",
     year: "2010",
+    duration: "1h 38min",
   },
   {
     id: 3,
@@ -38,6 +40,7 @@ const movieList = [
     image: img3,
     type: "Cartoon",
     year: "2014",
+    duration: "1h 42min",
   },
   {
     id: 4,
@@ -46,6 +49,7 @@ const movieList = [
     image: img4,
     type: "Cartoon",
     year: "2019",
+    duration: "1h 44min",
   },
   {
     id: 5,
@@ -54,6 +58,7 @@ const movieList = [
     image: img5,
     type: "Cartoon",
     year: "2003",
+    duration: "1h 40min",
   },
   {
     id: 6,
@@ -62,6 +67,7 @@ const movieList = [
     image: img6,
     type: "Cartoon",
     year: "2016",
+    duration: "1h 37min",
   },
   {
     id: 7,
@@ -70,6 +76,7 @@ const movieList = [
     image: img7,
     type: "Movie",
     year: "2009",
+    duration: "1h 48min",
   },
   {
     id: 8,
@@ -78,6 +85,7 @@ const movieList = [
     image: img8,
     type: "Movie",
     year: "2009",
+    duration: "1h 52min",
   },
   {
     id: 9,
@@ -86,6 +94,7 @@ const movieList = [
     image: img9,
     type: "Movie",
     year: "2012",
+    duration: "2h 22min",
   },
   {
     id: 10,
@@ -94,6 +103,7 @@ const movieList = [
     image: img10,
     type: "Movie",
     year: "2013",
+    duration: "1h 27min",
   },
   {
     id: 11,
@@ -102,6 +112,7 @@ const movieList = [
     image: img11,
     type: "Movie",
     year: "1964",
+    duration: "1h 32min",
   },
   {
     id: 12,
@@ -110,6 +121,7 @@ const movieList = [
     image: img12,
     type: "Movie",
     year: "2015",
+    duration: "1h 45min",
     actors: ["Will Smith"],
   },
   {
@@ -119,6 +131,7 @@ const movieList = [
     image: img13,
     type: "Movie",
     year: "1984",
+    duration: "4h 11min",
     actors: ["Robert De Niro"],
   },
   {
@@ -128,6 +141,7 @@ const movieList = [
     image: img14,
     type: "Movie",
     year: "2003",
+    duration: "1h 41min",
     actors: ["Jim Carrey"],
   },
   {
@@ -137,6 +151,7 @@ const movieList = [
     image: img15,
     type: "Movie",
     year: "2015",
+    duration: "1h 42min",
   },
 ];
 

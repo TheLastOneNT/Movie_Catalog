@@ -64,6 +64,11 @@ const MovieList = () => {
     render: (text) => text,
   });
 
+  const convertDurationToMinutes = (duration) => {
+    const [hours, minutes] = duration.split("h ");
+    return parseInt(hours) * 60 + parseInt(minutes.replace("min", ""));
+  };
+
   useEffect(() => {
     setFilteredInfo({});
     setSortedInfo({});
@@ -169,6 +174,12 @@ const MovieList = () => {
       dataIndex: "duration",
       key: "duration",
       align: "center",
+      sorter: (a, b) => {
+        const durationA = convertDurationToMinutes(a.duration);
+        const durationB = convertDurationToMinutes(b.duration);
+        return durationA - durationB;
+      },
+      sortOrder: sortedInfo.columnKey === "duration" && sortedInfo.order,
     },
     {
       title: "Actors",
