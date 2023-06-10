@@ -135,8 +135,26 @@ body {
 .table .ant-table-thead > tr > th {
   background: #ffcc00 !important;
   color: #000000;
+  font-size: 16px;
 }
 
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: #0f1923;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #ffcc00;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #0f1923;
+}
+
+/* Mobile version */
 @media only screen and (max-width: 600px) {
   .poster {
     width: 100px;

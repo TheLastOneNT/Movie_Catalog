@@ -74,6 +74,7 @@ const MovieList = () => {
       title: "Name",
       dataIndex: "name",
       key: "name",
+      width: "25vw",
       ...getColumnSearchProps("name", setSearchText),
     },
     {
@@ -81,6 +82,7 @@ const MovieList = () => {
       dataIndex: "genre",
       key: "genre",
       align: "center",
+      width: "15vw",
       filters: [
         { text: "Historical", value: "Historical" },
         { text: "Christian", value: "Christian" },
@@ -163,7 +165,7 @@ const MovieList = () => {
       align: "center",
     },
     {
-      title: "Movie Duration",
+      title: "Duration",
       dataIndex: "duration",
       key: "duration",
       align: "center",
