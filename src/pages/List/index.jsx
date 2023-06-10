@@ -1,4 +1,4 @@
-import { Input, Space, Button, Table, Tag } from "antd";
+import { Input, Space, Button, Table, Tag, Row, Col } from "antd";
 import { SearchOutlined } from "@ant-design/icons";
 import movieList from "../../Components/MovieList.js";
 import { useEffect, useState } from "react";
@@ -14,6 +14,9 @@ const MovieList = () => {
   };
 
   const searchByName = (record) => {
+    if (searchText === "") {
+      return true;
+    }
     return record.name.toLowerCase().includes(searchText.toLowerCase());
   };
 
@@ -35,7 +38,14 @@ const MovieList = () => {
           style={{ width: 188, marginBottom: 8, display: "block" }}
         />
         <Space>
-          <Button onClick={clearFilters} size="small" style={{ width: 90 }}>
+          <Button
+            onClick={() => {
+              clearFilters();
+              setSearchText("");
+            }}
+            size="small"
+            style={{ width: 90 }}
+          >
             Reset
           </Button>
         </Space>
@@ -214,15 +224,19 @@ const MovieList = () => {
   ];
 
   return (
-    <Table
-      className="table"
-      columns={columns}
-      dataSource={movieList.filter(searchByName)}
-      onChange={handleChange}
-      pagination={false}
-      scroll={{ y: 600 }}
-      size="small"
-    />
+    <Row align="middle" justify="center">
+      <Col xs={24} sm={24} md={24} lg={24} xl={24} xxl={24}>
+        <Table
+          className="table"
+          columns={columns}
+          dataSource={movieList.filter(searchByName)}
+          onChange={handleChange}
+          pagination={false}
+          scroll={{ y: 610 }}
+          size="small"
+        />
+      </Col>
+    </Row>
   );
 };
 

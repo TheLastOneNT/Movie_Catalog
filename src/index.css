@@ -115,6 +115,26 @@ body {
 /* List */
 .table {
   width: 90vw;
+  margin-top: 20px;
+}
+
+.table .ant-table,
+.table .ant-table-content,
+.table .ant-table-container,
+.table .ant-table-cell,
+.table .ant-table-thead > tr > th {
+  border: none !important;
+}
+
+.table .ant-table-thead > tr > th,
+.table .ant-table-tbody > tr > td {
+  background: #0f1923 100% !important;
+  color: #fff;
+}
+
+.table .ant-table-thead > tr > th {
+  background: #ffcc00 !important;
+  color: #000000;
 }
 
 @media only screen and (max-width: 600px) {
