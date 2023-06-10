@@ -161,18 +161,39 @@ const MovieList = () => {
       sortOrder: sortedInfo.columnKey === "year" && sortedInfo.order,
     },
     {
-      title: "Rating ",
+      title: "Rating",
       dataIndex: "rating",
       key: "rating",
       align: "center",
-      render: (rating) => (
-        <Rate
-          allowHalf
-          disabled
-          defaultValue={parseFloat(rating)}
-          style={{ fontSize: "14px" }}
-        />
-      ),
+      sorter: (a, b) => parseFloat(a.rating) - parseFloat(b.rating),
+      sortOrder: sortedInfo.columnKey === "rating" && sortedInfo.order,
+      render: (rating, record, index) => {
+        const isSorted = sortedInfo.columnKey === "rating";
+        const isActiveSortColumn = isSorted && sortedInfo.order !== undefined;
+        const starCount = parseFloat(rating);
+
+        return (
+          <div>
+            {isActiveSortColumn ? (
+              <Rate
+                allowHalf
+                disabled
+                count={5}
+                value={starCount}
+                style={{ fontSize: "14px" }}
+              />
+            ) : (
+              <Rate
+                allowHalf
+                disabled
+                count={5}
+                value={starCount}
+                style={{ fontSize: "14px" }}
+              />
+            )}
+          </div>
+        );
+      },
     },
     {
       title: "Duration",
