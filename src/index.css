@@ -22,7 +22,7 @@ body {
   justify-content: center;
   font-family: "Poppins", sans-serif;
   color: #fff;
-  font-size: 16px;
+  font-size: 20px;
   background: none;
 }
 
@@ -80,7 +80,6 @@ body {
 .card {
   background: none;
   border: none;
-  color: #fff;
   text-align: center;
 }
 
@@ -89,10 +88,15 @@ body {
   height: 300px;
 }
 
+.movieName {
+  color: #fff;
+  font-size: 14px;
+}
+
 .prevGalleryBtn,
 .nextGalleryBtn {
   position: fixed;
-  top: 48%;
+  top: 50%;
   font-size: 40px;
   color: #ffcc00;
   background: none;

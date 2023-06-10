@@ -1,9 +1,10 @@
 import { Card, Carousel } from "antd";
 import { useRef } from "react";
 import { RightCircleOutlined, LeftCircleOutlined } from "@ant-design/icons";
-import { Col, Row } from "antd";
+import { Col, Row, Tag, Typography } from "antd";
 import movieList from "../../Components/MovieList.js";
 
+const { Text } = Typography;
 const chunk = (arr, chunkSize = 1, cache = []) => {
   const tmp = [...arr];
   while (tmp.length) cache.push(tmp.splice(0, chunkSize));
@@ -43,7 +44,7 @@ const Gallery = () => {
                           alt={movie.name}
                           className="poster"
                         />
-                        <p>{movie.name}</p>
+                        <Text className="movieName">{movie.name}</Text>
                       </Card>
                     </Col>
                   ))}
@@ -57,7 +58,7 @@ const Gallery = () => {
                           alt={movie.name}
                           className="poster"
                         />
-                        <p>{movie.name}</p>
+                        <Text className="movieName">{movie.name}</Text>
                       </Card>
                     </Col>
                   ))}
