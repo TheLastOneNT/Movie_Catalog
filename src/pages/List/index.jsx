@@ -33,25 +33,13 @@ const MovieList = () => {
         <Input
           placeholder={`Search ${dataIndex}`}
           value={selectedKeys[0]}
-          onChange={(e) =>
-            setSelectedKeys(e.target.value ? [e.target.value] : [])
-          }
-          onPressEnter={() => confirm()}
+          onChange={(e) => {
+            setSelectedKeys(e.target.value ? [e.target.value] : []);
+            setSearchText(e.target.value || "");
+          }}
           style={{ width: 188, marginBottom: 8, display: "block" }}
         />
         <Space>
-          <Button
-            type="primary"
-            onClick={() => {
-              confirm();
-              setSearchText(selectedKeys[0] || "");
-            }}
-            icon={<SearchOutlined />}
-            size="small"
-            style={{ width: 90 }}
-          >
-            Search
-          </Button>
           <Button onClick={clearFilters} size="small" style={{ width: 90 }}>
             Reset
           </Button>
@@ -68,10 +56,6 @@ const MovieList = () => {
             .toLowerCase()
             .includes(value.toLowerCase())
         : "",
-    onFilterDropdownVisibleChange: (visible) => {
-      if (visible) {
-      }
-    },
     render: (text) => text,
   });
 
