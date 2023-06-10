@@ -1,34 +1,22 @@
-import { Layout } from "antd";
+import React from "react";
+import { Routes, Route } from "react-router-dom";
 
-import Footer from "./Components/Footer.js";
-import Gallery from "./Components/Gallery.js";
+import AppLayout from "./Layout";
+import Gallery from "./pages/Gallery";
+import List from "./pages/List";
 
-import "./index.css";
-import backgroundVideo from "./Resources/bg_video.mp4";
-
-const { Header, Content } = Layout;
-
-const MovieCatalog = () => {
+export default function App() {
   return (
-    <Layout>
-      <div className="coverImg" />
-      <video
-        className="bgVideo"
-        src={backgroundVideo}
-        autoPlay
-        loop
-        muted
-        playsInline
-      />
-
-      <Header className="header"></Header>
-      <Content className="content">
-        <div className="contentContainer">
-          <Gallery />
-        </div>
-      </Content>
-      <Footer />
-    </Layout>
+    <Routes>
+      <Route path="/" element={<AppLayout />}>
+        <Route path="gallery" element={<Gallery />} />
+        <Route path="list" element={<List />} />
+        <Route path="*" element={<NoMatch />} />
+      </Route>
+    </Routes>
   );
-};
-export default MovieCatalog;
+}
+
+function NoMatch() {
+  return <h1>404</h1>;
+}
