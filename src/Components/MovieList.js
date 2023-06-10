@@ -66,7 +66,7 @@ const movieList = [
   {
     id: 7,
     name: "Законопослушный гражданин",
-    genre: "Crime",
+    genre: "Action",
     image: img7,
     type: "Movie",
     year: "2009",
@@ -74,7 +74,7 @@ const movieList = [
   {
     id: 8,
     name: "Дом",
-    genre: "Crime",
+    genre: "Documentary",
     image: img8,
     type: "Movie",
     year: "2009",
@@ -110,6 +110,7 @@ const movieList = [
     image: img12,
     type: "Movie",
     year: "2015",
+    actors: "Will Smith",
   },
   {
     id: 13,
@@ -118,6 +119,7 @@ const movieList = [
     image: img13,
     type: "Movie",
     year: "1984",
+    actors: "Robert De Niro",
   },
   {
     id: 14,
@@ -126,6 +128,7 @@ const movieList = [
     image: img14,
     type: "Movie",
     year: "2003",
+    actors: "Jim Carrey",
   },
   {
     id: 15,
