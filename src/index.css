@@ -113,24 +113,9 @@ body {
 }
 
 /* List */
-/* .table .ant-table {
-  background: linear-gradient(45deg, #000000 0%, #0f1923 100%);
-  color: white;
+.table {
+  width: 90vw;
 }
-
-.table .ant-table-thead > tr > th {
-  background: transparent;
-  border-bottom: 1px solid transparent;
-  color: white;
-}
-
-.table .ant-table-tbody > tr > td {
-  border-bottom: 1px solid transparent;
-}
-
-.table .ant-table-bordered {
-  border-right: 1px solid transparent;
-} */
 
 @media only screen and (max-width: 600px) {
   .poster {

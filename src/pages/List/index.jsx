@@ -214,14 +214,15 @@ const MovieList = () => {
   ];
 
   return (
-    <div>
-      <Table
-        className="table"
-        columns={columns}
-        dataSource={movieList.filter(searchByName)}
-        onChange={handleChange}
-      />
-    </div>
+    <Table
+      className="table"
+      columns={columns}
+      dataSource={movieList.filter(searchByName)}
+      onChange={handleChange}
+      pagination={false}
+      scroll={{ y: 600 }}
+      size="small"
+    />
   );
 };
 
