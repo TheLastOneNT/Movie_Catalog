@@ -23,7 +23,7 @@ const movieList = [
     type: "Cartoon",
     year: "2021",
     duration: "1h 46min",
-    rating: "1.5",
+    rating: "4.5",
   },
   {
     id: 2,
@@ -33,6 +33,7 @@ const movieList = [
     type: "Cartoon",
     year: "2010",
     duration: "1h 38min",
+    rating: "4",
   },
   {
     id: 3,
@@ -42,6 +43,7 @@ const movieList = [
     type: "Cartoon",
     year: "2014",
     duration: "1h 42min",
+    rating: "4",
   },
   {
     id: 4,
@@ -51,6 +53,7 @@ const movieList = [
     type: "Cartoon",
     year: "2019",
     duration: "1h 44min",
+    rating: "4",
   },
   {
     id: 5,
@@ -60,6 +63,7 @@ const movieList = [
     type: "Cartoon",
     year: "2003",
     duration: "1h 40min",
+    rating: "4",
   },
   {
     id: 6,
@@ -69,6 +73,7 @@ const movieList = [
     type: "Cartoon",
     year: "2016",
     duration: "1h 37min",
+    rating: "4",
   },
   {
     id: 7,
@@ -78,6 +83,7 @@ const movieList = [
     type: "Movie",
     year: "2009",
     duration: "1h 48min",
+    rating: "4",
   },
   {
     id: 8,
@@ -87,6 +93,7 @@ const movieList = [
     type: "Movie",
     year: "2009",
     duration: "1h 52min",
+    rating: "3.5",
   },
   {
     id: 9,
@@ -96,6 +103,7 @@ const movieList = [
     type: "Movie",
     year: "2012",
     duration: "2h 22min",
+    rating: "3",
   },
   {
     id: 10,
@@ -105,6 +113,7 @@ const movieList = [
     type: "Movie",
     year: "2013",
     duration: "1h 27min",
+    rating: "4.5",
   },
   {
     id: 11,
@@ -114,6 +123,7 @@ const movieList = [
     type: "Movie",
     year: "1964",
     duration: "1h 32min",
+    rating: "4.5",
   },
   {
     id: 12,
@@ -124,6 +134,7 @@ const movieList = [
     year: "2015",
     duration: "1h 45min",
     actors: ["Will Smith"],
+    rating: "4",
   },
   {
     id: 13,
@@ -134,6 +145,7 @@ const movieList = [
     year: "1984",
     duration: "4h 11min",
     actors: ["Robert De Niro"],
+    rating: "3.5",
   },
   {
     id: 14,
@@ -144,6 +156,7 @@ const movieList = [
     year: "2003",
     duration: "1h 41min",
     actors: ["Jim Carrey"],
+    rating: "4",
   },
   {
     id: 15,
@@ -153,6 +166,7 @@ const movieList = [
     type: "Movie",
     year: "2015",
     duration: "1h 42min",
+    rating: "3.5",
   },
 ];
 

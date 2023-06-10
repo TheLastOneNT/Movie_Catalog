@@ -156,6 +156,7 @@ const MovieList = () => {
       dataIndex: "year",
       key: "year",
       align: "center",
+      width: "5vw",
       sorter: (a, b) => a.year - b.year,
       sortOrder: sortedInfo.columnKey === "year" && sortedInfo.order,
     },
@@ -164,7 +165,14 @@ const MovieList = () => {
       dataIndex: "rating",
       key: "rating",
       align: "center",
-      render: (rating) => <Rate allowHalf defaultValue={parseFloat(rating)} />,
+      render: (rating) => (
+        <Rate
+          allowHalf
+          disabled
+          defaultValue={parseFloat(rating)}
+          style={{ fontSize: "14px" }}
+        />
+      ),
     },
     {
       title: "Duration",
