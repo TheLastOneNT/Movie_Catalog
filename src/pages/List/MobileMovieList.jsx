@@ -33,7 +33,7 @@ const MobileMovieList = () => {
     ];
 
     return (
-      <Badge.Ribbon text={movie.type} style={{ marginTop: "50px" }}>
+      <Badge.Ribbon text={movie.type} style={{ marginTop: "40px" }}>
         <Card
           title={movie.name}
           style={{ margin: "16px auto" }}
@@ -54,27 +54,23 @@ const MobileMovieList = () => {
     );
   };
 
+  const handleResetSearch = () => {
+    setSearchText("");
+  };
+
   return (
     <Row align="middle" justify="center">
       <Col xs={24} sm={24} md={24} lg={24} xl={24} xxl={24}>
         <div style={{ marginBottom: 16 }}>
-          <Button
-          // onClick...
-          // add functionality for sorting/filtering/searching buttons
-          >
-            Sort
-          </Button>
-          <Button
-          // onClick...
-          >
-            Filter
-          </Button>
+          <Button style={{ width: "40%" }}>Sort</Button>
+          <Button style={{ width: "40%" }}>Filter</Button>
           <Input
             placeholder="Search"
             value={searchText}
-            onChange={(e) => setSearchText(e.target.value || "")}
-            style={{ width: 188, marginBottom: 8, display: "block" }}
+            onChange={(e) => setSearchText(e.target.value)}
+            style={{ width: "100%", marginBottom: 8, display: "block" }}
           />
+          {searchText && <Button onClick={handleResetSearch}>Reset</Button>}
         </div>
         {movieList.filter(searchByName).map(renderCard)}
       </Col>
