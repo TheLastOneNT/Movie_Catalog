@@ -212,6 +212,7 @@ const DesktopMovieList = () => {
       dataIndex: "actors",
       key: "actors",
       align: "center",
+      width: "15vw",
       filters: [
         { text: "Al Pacino", value: "Al Pacino" },
         { text: "Denzel Washington", value: "Denzel Washington" },
@@ -232,24 +233,28 @@ const DesktopMovieList = () => {
         record.actors && record.actors.includes(value),
       render: (actors) => {
         if (!actors || actors.length === 0) return null;
+
+        const actorsArray = actors[0].split(", ");
+
         return (
           <>
-            {actors.map((actor) => {
-              let color;
-              if (!actors) return null;
+            {actorsArray.map((actor) => {
+              let color = "black";
               if (actor === "Al Pacino") color = "blue";
               else if (actor === "Denzel Washington") color = "purple";
               else if (actor === "Leonardo DiCaprio") color = "red";
               else if (actor === "Brad Pitt") color = "volcano";
               else if (actor === "Jim Carrey") color = "green";
               else if (actor === "Tom Cruise") color = "orange";
-              else if (actor === "Robert De Niro") color = "geekblue";
+              else if (actor === "Robert De Niro") color = "#5A4171";
               else if (actor === "Robert Downey Jr") color = "cyan";
               else if (actor === "Will Smith") color = "gold";
               else if (actor === "Matthew McConaughey") color = "lime";
               else if (actor === "Matt Damon") color = "#f50";
               else if (actor === "Mark Wahlberg") color = "#2db7f5";
               else if (actor === "Mel Gibson") color = "#87d068";
+              else if (actor === "Keanu Reeves") color = "#B88E8D";
+              else if (actor === "Adriano Celentano") color = "#79C0A6";
               return (
                 <Tag color={color} key={actor}>
                   {actor && actor.toUpperCase()}

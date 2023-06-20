@@ -13,6 +13,10 @@ import img12 from "../Movie images/12.jpg";
 import img13 from "../Movie images/13.jpg";
 import img14 from "../Movie images/14.jpg";
 import img15 from "../Movie images/15.jpg";
+import img16 from "../Movie images/16.jpg";
+import img17 from "../Movie images/17.jpg";
+import img18 from "../Movie images/18.jpg";
+import img19 from "../Movie images/19.jpg";
 
 const movieList = [
   {
@@ -166,6 +170,50 @@ const movieList = [
     type: "Movie",
     year: "2015",
     duration: "1h 42min",
+    rating: "3.5",
+  },
+  {
+    id: 16,
+    name: "Схватка",
+    genre: ["Action", "Drama"],
+    image: img16,
+    type: "Movie",
+    year: "1995",
+    duration: "2h 50min",
+    actors: ["Robert De Niro, Al Pacino"],
+    rating: "4",
+  },
+  {
+    id: 17,
+    name: "Адвокат дьявола",
+    genre: ["Drama", "Christian"],
+    image: img17,
+    type: "Movie",
+    year: "1997",
+    duration: "2h 24min",
+    actors: ["Al Pacino, Keanu Reeves"],
+    rating: "4.5",
+  },
+  {
+    id: 18,
+    name: "Безумно влюблённый",
+    genre: ["Comedy"],
+    image: img18,
+    type: "Movie",
+    year: "1981",
+    duration: "1h 42min",
+    actors: ["Adriano Celentano"],
+    rating: "3.5",
+  },
+  {
+    id: 19,
+    name: "Лицо со шрамом",
+    genre: ["Action"],
+    image: img19,
+    type: "Movie",
+    year: "1983",
+    duration: "2h 50min",
+    actors: ["Al Pacino"],
     rating: "3.5",
   },
 ];
