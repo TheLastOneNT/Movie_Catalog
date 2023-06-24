@@ -1,9 +1,14 @@
-import { Card, Button, Input, Rate, Tag, Row, Col, Badge } from "antd";
+import { Card, Button, Input, Rate, Tag, Row, Col, Badge, Tree } from "antd";
 import movieList from "../../Components/MovieList.js";
 import { useState } from "react";
+import { SortAscendingOutlined, FilterOutlined, SearchOutlined } from "@ant-design/icons";
+
+const { TreeNode } = Tree;
 
 const MobileMovieList = () => {
   const [searchText, setSearchText] = useState("");
+  const [filterVisible, setFilterVisible] = useState(false);
+  const [selectedFilters, setSelectedFilters] = useState([]);
 
   const searchByName = (record) => {
     if (searchText === "") {
@@ -58,20 +63,58 @@ const MobileMovieList = () => {
     setSearchText("");
   };
 
+  const handleFilterVisible = () => {
+    setFilterVisible(!filterVisible);
+  };
+
+  const handleFilterChange = (checkedValues) => {
+    setSelectedFilters(checkedValues);
+  };
+
+  const renderFilterTree = () => {
+    return (
+      <Tree
+        checkable
+        showLine
+        defaultExpandAll
+        onSelect={handleFilterChange}
+        checkedKeys={selectedFilters}
+      >
+        <TreeNode title="Genre" key="genre">
+          <TreeNode title="Action" key="action" />
+          <TreeNode title="Drama" key="drama" />
+          {/* Add more genre options */}
+        </TreeNode>
+        <TreeNode title="Type" key="type">
+          <TreeNode title="Movie" key="movie" />
+          <TreeNode title="TV Show" key="tvshow" />
+          {/* Add more type options */}
+        </TreeNode>
+        <TreeNode title="Actors" key="actors">
+          <TreeNode title="Actor 1" key="actor1" />
+          <TreeNode title="Actor 2" key="actor2" />
+          {/* Add more actor options */}
+        </TreeNode>
+      </Tree>
+    );
+  };
+
   return (
     <Row align="middle" justify="center">
       <Col xs={24} sm={24} md={24} lg={24} xl={24} xxl={24}>
-        <div style={{ marginBottom: 16 }}>
-          <Button style={{ width: "40%" }}>Sort</Button>
-          <Button style={{ width: "40%" }}>Filter</Button>
+        <div style={{ marginBottom: 16, display: "flex", alignItems: "center" }}>
+          <Button icon={<SortAscendingOutlined />} style={{ marginRight: 8 }} />
+          <Button icon={<FilterOutlined />} onClick={handleFilterVisible} style={{ marginRight: 8 }} />
           <Input
             placeholder="Search"
             value={searchText}
             onChange={(e) => setSearchText(e.target.value)}
-            style={{ width: "100%", marginBottom: 8, display: "block" }}
+            prefix={<SearchOutlined />}
+            style={{ flex: 1, marginRight: 8 }}
           />
           {searchText && <Button onClick={handleResetSearch}>Reset</Button>}
         </div>
+        {filterVisible && renderFilterTree()}
         {movieList.filter(searchByName).map(renderCard)}
       </Col>
     </Row>
