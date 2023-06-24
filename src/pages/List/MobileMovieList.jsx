@@ -59,10 +59,6 @@ const MobileMovieList = () => {
     );
   };
 
-  const handleResetSearch = () => {
-    setSearchText("");
-  };
-
   const handleFilterVisible = () => {
     setFilterVisible(!filterVisible);
   };
@@ -110,9 +106,9 @@ const MobileMovieList = () => {
             value={searchText}
             onChange={(e) => setSearchText(e.target.value)}
             prefix={<SearchOutlined />}
+            allowClear
             style={{ flex: 1, marginRight: 8 }}
           />
-          {searchText && <Button onClick={handleResetSearch}>Reset</Button>}
         </div>
         {filterVisible && renderFilterTree()}
         {movieList.filter(searchByName).map(renderCard)}
