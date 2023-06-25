@@ -102,7 +102,13 @@ const MobileMovieList = () => {
   return (
     <Row align="middle" justify="center">
       <Col xs={24} sm={24} md={24} lg={24} xl={24} xxl={24}>
-        <div style={{ display: "flex", alignItems: "center" }}>
+        <div
+          style={{
+            marginBottom: "16px",
+            display: "flex",
+            alignItems: "center",
+          }}
+        >
           <Button icon={<SortAscendingOutlined />} style={{ marginRight: 8 }} />
           <Button
             icon={<FilterOutlined />}
