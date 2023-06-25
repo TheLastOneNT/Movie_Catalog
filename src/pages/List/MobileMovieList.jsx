@@ -4,7 +4,7 @@ import {
   SearchOutlined,
 } from "@ant-design/icons";
 import { Badge, Button, Card, Col, Input, Rate, Row, Tag, Tree } from "antd";
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import movieList from "../../Components/MovieList.js";
 
 const { TreeNode } = Tree;
@@ -15,10 +15,6 @@ const MobileMovieList = () => {
   const [selectedFilters, setSelectedFilters] = useState([]);
   const [sortAscending, setSortAscending] = useState(true);
   const [sortedMovieList, setSortedMovieList] = useState([]);
-
-  useEffect(() => {
-    sortMovieList();
-  }, [sortAscending]);
 
   const searchByName = (record) => {
     if (searchText === "") {
@@ -68,7 +64,7 @@ const MobileMovieList = () => {
     );
   };
 
-  const sortMovieList = () => {
+  const sortMovieList = useCallback(() => {
     const sortedList = [...movieList].sort((a, b) => {
       const durationA = convertDurationToMinutes(a.duration);
       const durationB = convertDurationToMinutes(b.duration);
@@ -77,7 +73,7 @@ const MobileMovieList = () => {
     });
 
     setSortedMovieList(sortedList);
-  };
+  }, [sortAscending]);
 
   const convertDurationToMinutes = (duration) => {
     const durationParts = duration.match(/\d+/g);
@@ -126,6 +122,10 @@ const MobileMovieList = () => {
       </Tree>
     );
   };
+
+  useEffect(() => {
+    sortMovieList();
+  }, [sortAscending, sortMovieList]);
 
   return (
     <Row align="middle" justify="center">
