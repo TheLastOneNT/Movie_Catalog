@@ -1,10 +1,10 @@
 import {
+  BarChartOutlined,
   FilterOutlined,
   SearchOutlined,
-  SortAscendingOutlined,
 } from "@ant-design/icons";
 import { Badge, Button, Card, Col, Input, Rate, Row, Tag, Tree } from "antd";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import movieList from "../../Components/MovieList.js";
 
 const { TreeNode } = Tree;
@@ -13,6 +13,12 @@ const MobileMovieList = () => {
   const [searchText, setSearchText] = useState("");
   const [filterVisible, setFilterVisible] = useState(false);
   const [selectedFilters, setSelectedFilters] = useState([]);
+  const [sortAscending, setSortAscending] = useState(true);
+  const [sortedMovieList, setSortedMovieList] = useState([]);
+
+  useEffect(() => {
+    sortMovieList();
+  }, [sortAscending]);
 
   const searchByName = (record) => {
     if (searchText === "") {
@@ -42,13 +48,12 @@ const MobileMovieList = () => {
     ];
 
     return (
-      <Badge.Ribbon text={movie.type} style={{ marginTop: "40px" }}>
-        <Card
-          title={movie.name}
-          style={{ margin: "16px auto" }}
-          key={movie.key}
-          size="small"
-        >
+      <Badge.Ribbon
+        text={movie.type}
+        style={{ marginTop: "40px" }}
+        key={movie.id}
+      >
+        <Card title={movie.name} style={{ margin: "16px auto" }} size="small">
           <Rate
             allowHalf
             disabled
@@ -61,6 +66,29 @@ const MobileMovieList = () => {
         </Card>
       </Badge.Ribbon>
     );
+  };
+
+  const sortMovieList = () => {
+    const sortedList = [...movieList].sort((a, b) => {
+      const durationA = convertDurationToMinutes(a.duration);
+      const durationB = convertDurationToMinutes(b.duration);
+
+      return sortAscending ? durationA - durationB : durationB - durationA;
+    });
+
+    setSortedMovieList(sortedList);
+  };
+
+  const convertDurationToMinutes = (duration) => {
+    const durationParts = duration.match(/\d+/g);
+    if (durationParts.length === 2) {
+      const hours = parseInt(durationParts[0], 10);
+      const minutes = parseInt(durationParts[1], 10);
+      return hours * 60 + minutes;
+    } else if (durationParts.length === 1) {
+      return parseInt(durationParts[0], 10);
+    }
+    return 0;
   };
 
   const handleFilterVisible = () => {
@@ -109,7 +137,11 @@ const MobileMovieList = () => {
             alignItems: "center",
           }}
         >
-          <Button icon={<SortAscendingOutlined />} style={{ marginRight: 8 }} />
+          <Button
+            icon={<BarChartOutlined />}
+            onClick={() => setSortAscending(!sortAscending)}
+            style={{ marginRight: 8 }}
+          />
           <Button
             icon={<FilterOutlined />}
             onClick={handleFilterVisible}
@@ -124,7 +156,7 @@ const MobileMovieList = () => {
           />
         </div>
         {filterVisible && renderFilterTree()}
-        {movieList.filter(searchByName).map(renderCard)}
+        {sortedMovieList.filter(searchByName).map(renderCard)}
       </Col>
     </Row>
   );
