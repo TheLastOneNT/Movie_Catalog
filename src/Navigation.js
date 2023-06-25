@@ -1,12 +1,12 @@
+import { Col, Menu, Row } from "antd";
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { Menu, Row, Col } from "antd";
 
 const items = [
-  {
+  /*   {
     label: <Link to="/gallery">Gallery</Link>,
     key: "gallery",
-  },
+  }, */
   {
     label: <Link to="/list">List</Link>,
     key: "list",

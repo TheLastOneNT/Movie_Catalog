@@ -3,16 +3,24 @@ import {
   FilterOutlined,
   SearchOutlined,
 } from "@ant-design/icons";
-import { Badge, Button, Card, Col, Input, Rate, Row, Tag, Tree } from "antd";
+import {
+  Badge,
+  Button,
+  Card,
+  Col,
+  Input,
+  Rate,
+  Row,
+  Tag,
+  TreeSelect,
+} from "antd";
 import { useCallback, useEffect, useState } from "react";
 import movieList from "../../Components/MovieList.js";
-
-const { TreeNode } = Tree;
 
 const MobileMovieList = () => {
   const [searchText, setSearchText] = useState("");
   const [filterVisible, setFilterVisible] = useState(false);
-  const [selectedFilters, setSelectedFilters] = useState([]);
+  const [selectedMovieTypes, setSelectedMovieTypes] = useState([]);
   const [sortAscending, setSortAscending] = useState(true);
   const [sortedMovieList, setSortedMovieList] = useState([]);
 
@@ -65,7 +73,7 @@ const MobileMovieList = () => {
   };
 
   const sortMovieList = useCallback(() => {
-    const sortedList = [...movieList].sort((a, b) => {
+    const sortedList = Array.from(movieList).sort((a, b) => {
       const durationA = convertDurationToMinutes(a.duration);
       const durationB = convertDurationToMinutes(b.duration);
 
@@ -87,40 +95,26 @@ const MobileMovieList = () => {
     return 0;
   };
 
-  const handleFilterVisible = () => {
-    setFilterVisible(!filterVisible);
-  };
+  const movieTypeTreeData = [
+    {
+      title: "Movie",
+      value: "Movie",
+      key: "Movie",
+    },
+    {
+      title: "Cartoon",
+      value: "Cartoon",
+      key: "Cartoon",
+    },
+    {
+      title: "Serial",
+      value: "Serial",
+      key: "Serial",
+    },
+  ];
 
-  const handleFilterChange = (checkedValues) => {
-    setSelectedFilters(checkedValues);
-  };
-
-  const renderFilterTree = () => {
-    return (
-      <Tree
-        checkable
-        showLine
-        defaultExpandAll
-        onSelect={handleFilterChange}
-        checkedKeys={selectedFilters}
-      >
-        <TreeNode title="Genre" key="genre">
-          <TreeNode title="Action" key="action" />
-          <TreeNode title="Drama" key="drama" />
-          {/* Add more genre options */}
-        </TreeNode>
-        <TreeNode title="Type" key="type">
-          <TreeNode title="Movie" key="movie" />
-          <TreeNode title="TV Show" key="tvshow" />
-          {/* Add more type options */}
-        </TreeNode>
-        <TreeNode title="Actors" key="actors">
-          <TreeNode title="Actor 1" key="actor1" />
-          <TreeNode title="Actor 2" key="actor2" />
-          {/* Add more actor options */}
-        </TreeNode>
-      </Tree>
-    );
+  const handleMovieTypeChange = (selectedTypes) => {
+    setSelectedMovieTypes(selectedTypes);
   };
 
   useEffect(() => {
@@ -140,12 +134,27 @@ const MobileMovieList = () => {
           <Button
             icon={<BarChartOutlined />}
             onClick={() => setSortAscending(!sortAscending)}
-            style={{ marginRight: 8 }}
+            style={{ marginRight: "8px" }}
           />
+
+          {/* TreeSelect component for movie type filter */}
+          <TreeSelect
+            showSearch
+            style={{ width: 200, marginRight: "8px" }}
+            value={selectedMovieTypes}
+            dropdownStyle={{ maxHeight: 400, overflow: "auto" }}
+            placeholder="Select Movie Types"
+            allowClear
+            multiple
+            treeDefaultExpandAll
+            onChange={handleMovieTypeChange}
+            treeData={movieTypeTreeData}
+          />
+
           <Button
             icon={<FilterOutlined />}
-            onClick={handleFilterVisible}
-            style={{ marginRight: 8 }}
+            onClick={() => setFilterVisible(!filterVisible)}
+            style={{ marginRight: "8px" }}
           />
           <Input
             placeholder="Search"
@@ -153,10 +162,17 @@ const MobileMovieList = () => {
             onChange={(e) => setSearchText(e.target.value)}
             prefix={<SearchOutlined />}
             allowClear
+            style={{ flex: 1 }}
           />
         </div>
-        {filterVisible && renderFilterTree()}
-        {sortedMovieList.filter(searchByName).map(renderCard)}
+        {sortedMovieList
+          .filter(searchByName)
+          .filter(
+            (movie) =>
+              selectedMovieTypes.length === 0 ||
+              selectedMovieTypes.includes(movie.type)
+          )
+          .map(renderCard)}
       </Col>
     </Row>
   );
