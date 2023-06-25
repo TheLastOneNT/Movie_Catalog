@@ -140,7 +140,7 @@ const MobileMovieList = () => {
           {/* TreeSelect component for movie type filter */}
           <TreeSelect
             showSearch
-            style={{ width: 200, marginRight: "8px" }}
+            style={{ width: 44, marginRight: "8px" }} // Adjust the width to fit the icon
             value={selectedMovieTypes}
             dropdownStyle={{ maxHeight: 400, overflow: "auto" }}
             placeholder="Select Movie Types"
