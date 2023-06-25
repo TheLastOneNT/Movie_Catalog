@@ -1,7 +1,11 @@
-import { Card, Button, Input, Rate, Tag, Row, Col, Badge, Tree } from "antd";
-import movieList from "../../Components/MovieList.js";
+import {
+  FilterOutlined,
+  SearchOutlined,
+  SortAscendingOutlined,
+} from "@ant-design/icons";
+import { Badge, Button, Card, Col, Input, Rate, Row, Tag, Tree } from "antd";
 import { useState } from "react";
-import { SortAscendingOutlined, FilterOutlined, SearchOutlined } from "@ant-design/icons";
+import movieList from "../../Components/MovieList.js";
 
 const { TreeNode } = Tree;
 
@@ -98,16 +102,19 @@ const MobileMovieList = () => {
   return (
     <Row align="middle" justify="center">
       <Col xs={24} sm={24} md={24} lg={24} xl={24} xxl={24}>
-        <div style={{ marginBottom: 16, display: "flex", alignItems: "center" }}>
+        <div style={{ display: "flex", alignItems: "center" }}>
           <Button icon={<SortAscendingOutlined />} style={{ marginRight: 8 }} />
-          <Button icon={<FilterOutlined />} onClick={handleFilterVisible} style={{ marginRight: 8 }} />
+          <Button
+            icon={<FilterOutlined />}
+            onClick={handleFilterVisible}
+            style={{ marginRight: 8 }}
+          />
           <Input
             placeholder="Search"
             value={searchText}
             onChange={(e) => setSearchText(e.target.value)}
             prefix={<SearchOutlined />}
             allowClear
-            style={{ flex: 1, marginRight: 8 }}
           />
         </div>
         {filterVisible && renderFilterTree()}
