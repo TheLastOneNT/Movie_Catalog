@@ -1,12 +1,3 @@
-import img1 from "../Movie images/ron.jpg";
-import img2 from "../Movie images/drakon1.jpg";
-import img3 from "../Movie images/drakon2.webp";
-import img4 from "../Movie images/drakon3.webp";
-import img5 from "../Movie images/nemo.jpg";
-import img6 from "../Movie images/dori.jpg";
-import img7 from "../Movie images/7.webp";
-import img8 from "../Movie images/8.jpg";
-import img9 from "../Movie images/9.jpg";
 import img10 from "../Movie images/10.jpg";
 import img11 from "../Movie images/11.jpg";
 import img12 from "../Movie images/12.jpg";
@@ -17,6 +8,26 @@ import img16 from "../Movie images/16.jpg";
 import img17 from "../Movie images/17.jpg";
 import img18 from "../Movie images/18.jpg";
 import img19 from "../Movie images/19.jpg";
+import img20 from "../Movie images/20.jpg";
+import img21 from "../Movie images/21.jpg";
+import img22 from "../Movie images/22.jpg";
+import img23 from "../Movie images/23.jpg";
+import img24 from "../Movie images/24.jpg";
+import img25 from "../Movie images/25.jpg";
+import img26 from "../Movie images/26.jpg";
+import img27 from "../Movie images/27.jpg";
+import img28 from "../Movie images/28.jpg";
+import img29 from "../Movie images/29.jpg";
+import img30 from "../Movie images/30.jpg";
+import img7 from "../Movie images/7.webp";
+import img8 from "../Movie images/8.jpg";
+import img9 from "../Movie images/9.jpg";
+import img6 from "../Movie images/dori.jpg";
+import img2 from "../Movie images/drakon1.jpg";
+import img3 from "../Movie images/drakon2.webp";
+import img4 from "../Movie images/drakon3.webp";
+import img5 from "../Movie images/nemo.jpg";
+import img1 from "../Movie images/ron.jpg";
 
 const movieList = [
   {
@@ -215,6 +226,127 @@ const movieList = [
     duration: "2h 50min",
     actors: ["Al Pacino"],
     rating: "3.5",
+  },
+  {
+    id: 20,
+    name: "Бойцовский клуб",
+    genre: ["Action", "Drama"],
+    image: img20,
+    type: "Movie",
+    year: "1999",
+    duration: "2h 19min",
+    actors: ["Brad Pitt"],
+    rating: "5",
+  },
+  {
+    id: 21,
+    name: "Крёстный Отец 1",
+    genre: ["Action", "Drama"],
+    image: img21,
+    type: "Movie",
+    year: "1972",
+    duration: "2h 55min",
+    actors: ["Al Pacino"],
+    rating: "5",
+  },
+  {
+    id: 22,
+    name: "Крёстный Отец 2",
+    genre: ["Action", "Drama"],
+    image: img22,
+    type: "Movie",
+    year: "1974",
+    duration: "3h 22min",
+    actors: ["Al Pacino, Robert De Niro"],
+    rating: "5",
+  },
+  {
+    id: 23,
+    name: "Крёстный Отец 3",
+    genre: ["Action", "Drama"],
+    image: img23,
+    type: "Movie",
+    year: "1990",
+    duration: "2h 42min",
+    actors: ["Al Pacino"],
+    rating: "5",
+  },
+  {
+    id: 24,
+    name: "Укрощение строптивого",
+    genre: ["Comedy"],
+    image: img24,
+    type: "Movie",
+    year: "1980",
+    duration: "1h 44min",
+    actors: ["Adriano Celentano"],
+    rating: "4",
+  },
+  {
+    id: 25,
+    name: "Блеф",
+    genre: ["Comedy"],
+    image: img25,
+    type: "Movie",
+    year: "1976",
+    duration: "1h 45min",
+    actors: ["Adriano Celentano"],
+    rating: "3.5",
+  },
+  {
+    id: 26,
+    name: "Нокдаун",
+    genre: ["Drama"],
+    image: img26,
+    type: "Movie",
+    year: "2005",
+    duration: "2h 24min",
+    actors: ["Russell Crowe"],
+    rating: "4.5",
+  },
+  {
+    id: 27,
+    name: "Гладиатор",
+    genre: ["Drama"],
+    image: img27,
+    type: "Movie",
+    year: "2000",
+    duration: "2h 35min",
+    actors: ["Russell Crowe"],
+    rating: "5",
+  },
+  {
+    id: 28,
+    name: "Последний самурай",
+    genre: ["Drama"],
+    image: img28,
+    type: "Movie",
+    year: "2003",
+    duration: "2h 34min",
+    actors: ["Tom Cruise"],
+    rating: "5",
+  },
+  {
+    id: 29,
+    name: "Грань будущего",
+    genre: ["Action", "Drama"],
+    image: img29,
+    type: "Movie",
+    year: "2014",
+    duration: "1h 53min",
+    actors: ["Tom Cruise"],
+    rating: "4",
+  },
+  {
+    id: 30,
+    name: "Обливион",
+    genre: ["Action", "Drama"],
+    image: img30,
+    type: "Movie",
+    year: "2013",
+    duration: "2h 4min",
+    actors: ["Tom Cruise"],
+    rating: "4",
   },
 ];
 

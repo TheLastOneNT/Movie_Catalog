@@ -1,7 +1,7 @@
-import { Input, Space, Button, Table, Tag, Row, Col, Rate } from "antd";
 import { SearchOutlined } from "@ant-design/icons";
-import movieList from "../../Components/MovieList.js";
+import { Button, Col, Input, Rate, Row, Space, Table, Tag } from "antd";
 import { useEffect, useState } from "react";
+import movieList from "../../Components/MovieList.js";
 
 const DesktopMovieList = () => {
   const [filteredInfo, setFilteredInfo] = useState({});
@@ -229,8 +229,13 @@ const DesktopMovieList = () => {
         { text: "Mel Gibson", value: "Mel Gibson" },
       ],
       filteredValue: filteredInfo.actors || null,
-      onFilter: (value, record) =>
-        record.actors && record.actors.includes(value),
+      onFilter: (value, record) => {
+        if (!record.actors) {
+          return false;
+        }
+        const actorsArray = record.actors[0].split(", ");
+        return actorsArray.some((actor) => actor === value);
+      },
       render: (actors) => {
         if (!actors || actors.length === 0) return null;
 
