@@ -11,8 +11,8 @@ import {
   Tag,
   message,
 } from "antd";
+import moment from "moment";
 import { useEffect, useState } from "react";
-/* import movieList from "../../Components/MovieList"; */
 
 const DesktopMovieList = () => {
   const [filteredInfo, setFilteredInfo] = useState({});
@@ -96,9 +96,7 @@ const DesktopMovieList = () => {
 
   const handleJustViewed = async () => {
     try {
-      const viewedDate = new Date().toLocaleString("en-US", {
-        timeZone: "America/New_York",
-      });
+      const viewedDate = moment().format("DD-MM-YYYY");
       const response = await fetch(
         `http://localhost:3000/movie-catalog/${selectedMovie.id}`,
         {
@@ -343,8 +341,14 @@ const DesktopMovieList = () => {
       dataIndex: "viewed",
       key: "viewed",
       align: "center",
-      sorter: (a, b) => a.viewed.localeCompare(b.viewed),
+      sorter: (a, b) => a.viewed?.localeCompare(b.viewed),
       sortOrder: sortedInfo.columnKey === "viewed" && sortedInfo.order,
+      render: (viewed) => {
+        const formattedViewed = viewed
+          ? moment(viewed).format("DD-MM-YYYY")
+          : "No data";
+        return <span>{formattedViewed}</span>;
+      },
     },
   ];
 
