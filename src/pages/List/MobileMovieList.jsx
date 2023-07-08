@@ -27,7 +27,6 @@ const MobileMovieList = () => {
   const fetchMovies = async () => {
     const response = await fetch("http://localhost:3000/movie-catalog");
     const data = await response.json();
-    console.log("::::::::", data);
     setMovieList(data);
   };
 

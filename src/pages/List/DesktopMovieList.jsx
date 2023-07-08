@@ -1,23 +1,41 @@
 import { SearchOutlined } from "@ant-design/icons";
-import { Button, Col, Input, Rate, Row, Space, Table, Tag } from "antd";
+import {
+  Button,
+  Col,
+  Input,
+  Modal,
+  Rate,
+  Row,
+  Space,
+  Table,
+  Tag,
+  message,
+} from "antd";
 import { useEffect, useState } from "react";
+/* import movieList from "../../Components/MovieList"; */
 
 const DesktopMovieList = () => {
   const [filteredInfo, setFilteredInfo] = useState({});
   const [sortedInfo, setSortedInfo] = useState({});
   const [searchText, setSearchText] = useState("");
   const [movieList, setMovieList] = useState([]);
+  const [isModalVisible, setIsModalVisible] = useState(false);
+  const [selectedMovie, setSelectedMovie] = useState(null);
 
   const fetchMovies = async () => {
     const response = await fetch("http://localhost:3000/movie-catalog");
     const data = await response.json();
-    console.log("::::::::", data);
     setMovieList(data);
   };
 
   const handleChange = (pagination, filters, sorter) => {
     setFilteredInfo(filters);
     setSortedInfo(sorter);
+  };
+
+  const handleRowClick = (record) => {
+    setIsModalVisible(true);
+    setSelectedMovie(record);
   };
 
   const searchByName = (record) => {
@@ -74,6 +92,45 @@ const DesktopMovieList = () => {
   const convertDurationToMinutes = (duration) => {
     const [hours, minutes] = duration.split("h ");
     return parseInt(hours) * 60 + parseInt(minutes.replace("min", ""));
+  };
+
+  const handleJustViewed = async () => {
+    try {
+      const viewedDate = new Date().toLocaleString("en-US", {
+        timeZone: "America/New_York",
+      });
+      const response = await fetch(
+        `http://localhost:3000/movie-catalog/${selectedMovie.id}`,
+        {
+          method: "PUT",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ viewed: viewedDate }),
+        }
+      );
+      await response.json();
+      setSelectedMovie({ ...selectedMovie, viewed: viewedDate });
+      message.success("Movie marked as viewed");
+    } catch (error) {
+      message.error("Error marking movie as viewed");
+    }
+  };
+
+  const handleRatingChange = async (rating) => {
+    try {
+      const response = await fetch(
+        `http://localhost:3000/movie-catalog/${selectedMovie.id}`,
+        {
+          method: "PUT",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ rating: rating }),
+        }
+      );
+      await response.json();
+      setSelectedMovie({ ...selectedMovie, rating: rating });
+      message.success("Rating updated successfully");
+    } catch (error) {
+      message.error("Error updating rating");
+    }
   };
 
   useEffect(() => {
@@ -281,6 +338,14 @@ const DesktopMovieList = () => {
         );
       },
     },
+    {
+      title: "Viewed",
+      dataIndex: "viewed",
+      key: "viewed",
+      align: "center",
+      sorter: (a, b) => a.viewed.localeCompare(b.viewed),
+      sortOrder: sortedInfo.columnKey === "viewed" && sortedInfo.order,
+    },
   ];
 
   return (
@@ -294,7 +359,39 @@ const DesktopMovieList = () => {
           pagination={false}
           scroll={{ y: 610 }}
           size="small"
+          onRow={(record) => {
+            return {
+              onClick: () => handleRowClick(record),
+            };
+          }}
         />
+
+        {selectedMovie && (
+          <Modal
+            title={selectedMovie.name}
+            open={isModalVisible}
+            onCancel={() => setIsModalVisible(false)}
+            footer={null}
+          >
+            <img
+              src={movieList[selectedMovie.id].poster}
+              alt={selectedMovie.name}
+            />
+            <p>Genre: {selectedMovie.genre.join(", ")}</p>
+            <p>Type: {selectedMovie.type}</p>
+            <p>Year: {selectedMovie.year}</p>
+            <p>Duration: {selectedMovie.duration}</p>
+            <p>Actors: {selectedMovie.actors}</p>
+            <p>Rating: {selectedMovie.rating}</p>
+            <Rate
+              value={selectedMovie.rating}
+              onChange={(rating) => handleRatingChange(rating)}
+            />
+            <Button type="primary" onClick={handleJustViewed}>
+              Just viewed
+            </Button>
+          </Modal>
+        )}
       </Col>
     </Row>
   );
