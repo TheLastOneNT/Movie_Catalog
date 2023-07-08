@@ -1,12 +1,19 @@
 import { SearchOutlined } from "@ant-design/icons";
 import { Button, Col, Input, Rate, Row, Space, Table, Tag } from "antd";
 import { useEffect, useState } from "react";
-import movieList from "../../Components/MovieList.js";
 
 const DesktopMovieList = () => {
   const [filteredInfo, setFilteredInfo] = useState({});
   const [sortedInfo, setSortedInfo] = useState({});
   const [searchText, setSearchText] = useState("");
+  const [movieList, setMovieList] = useState([]);
+
+  const fetchMovies = async () => {
+    const response = await fetch("http://localhost:3000/movie-catalog");
+    const data = await response.json();
+    console.log("::::::::", data);
+    setMovieList(data);
+  };
 
   const handleChange = (pagination, filters, sorter) => {
     setFilteredInfo(filters);
@@ -73,6 +80,10 @@ const DesktopMovieList = () => {
     setFilteredInfo({});
     setSortedInfo({});
   }, [searchText]);
+
+  useEffect(() => {
+    fetchMovies();
+  }, []);
 
   const columns = [
     {

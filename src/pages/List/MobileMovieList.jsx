@@ -15,7 +15,6 @@ import {
   TreeSelect,
 } from "antd";
 import { useCallback, useEffect, useState } from "react";
-import movieList from "../../Components/MovieList.js";
 
 const MobileMovieList = () => {
   const [searchText, setSearchText] = useState("");
@@ -23,6 +22,14 @@ const MobileMovieList = () => {
   const [selectedMovieTypes, setSelectedMovieTypes] = useState([]);
   const [sortAscending, setSortAscending] = useState(true);
   const [sortedMovieList, setSortedMovieList] = useState([]);
+  const [movieList, setMovieList] = useState([]);
+
+  const fetchMovies = async () => {
+    const response = await fetch("http://localhost:3000/movie-catalog");
+    const data = await response.json();
+    console.log("::::::::", data);
+    setMovieList(data);
+  };
 
   const searchByName = (record) => {
     if (searchText === "") {
@@ -81,7 +88,7 @@ const MobileMovieList = () => {
     });
 
     setSortedMovieList(sortedList);
-  }, [sortAscending]);
+  }, [sortAscending, movieList]);
 
   const convertDurationToMinutes = (duration) => {
     const durationParts = duration.match(/\d+/g);
@@ -120,6 +127,10 @@ const MobileMovieList = () => {
   useEffect(() => {
     sortMovieList();
   }, [sortAscending, sortMovieList]);
+
+  useEffect(() => {
+    fetchMovies();
+  }, []);
 
   return (
     <Row align="middle" justify="center">
