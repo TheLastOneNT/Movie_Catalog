@@ -25,7 +25,9 @@ const MobileMovieList = () => {
   const [movieList, setMovieList] = useState([]);
 
   const fetchMovies = async () => {
-    const response = await fetch("http://localhost:3000/movie-catalog");
+    const response = await fetch(
+      "http://movie-catalog-do-user-14345231-0.b.db.ondigitalocean.com/movie-catalog"
+    );
     const data = await response.json();
     setMovieList(data);
   };

@@ -1,7 +1,7 @@
 {
   "name": "movie_catalog",
   "version": "0.1.0",
-  "proxy": "http://localhost:5000",
+  "proxy": "http://movie-catalog-do-user-14345231-0.b.db.ondigitalocean.com",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.5",

@@ -23,7 +23,9 @@ const DesktopMovieList = () => {
   const [selectedMovie, setSelectedMovie] = useState(null);
 
   const fetchMovies = async () => {
-    const response = await fetch("http://localhost:3000/movie-catalog");
+    const response = await fetch(
+      "http://movie-catalog-do-user-14345231-0.b.db.ondigitalocean.com/movie-catalog"
+    );
     const data = await response.json();
     setMovieList(data);
   };
@@ -98,7 +100,7 @@ const DesktopMovieList = () => {
     try {
       const viewedDate = moment().format("DD-MM-YYYY");
       const response = await fetch(
-        `http://localhost:3000/movie-catalog/${selectedMovie.id}`,
+        `http://movie-catalog-do-user-14345231-0.b.db.ondigitalocean.com/movie-catalog/${selectedMovie.id}`,
         {
           method: "PUT",
           headers: { "Content-Type": "application/json" },
@@ -116,7 +118,7 @@ const DesktopMovieList = () => {
   const handleRatingChange = async (rating) => {
     try {
       const response = await fetch(
-        `http://localhost:3000/movie-catalog/${selectedMovie.id}`,
+        `http://movie-catalog-do-user-14345231-0.b.db.ondigitalocean.com/movie-catalog/${selectedMovie.id}`,
         {
           method: "PUT",
           headers: { "Content-Type": "application/json" },
